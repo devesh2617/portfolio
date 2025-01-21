@@ -44,7 +44,7 @@ const Navbar = () => {
   return (
     <header className="fixed top-0 left-0 right-0 flex items-center h-16 bg-black/10 backdrop-blur-md z-10 text-white">
       <nav className="max-w-screen-xl w-full flex justify-between items-center mx-auto px-4 font-semibold">
-        <h2 className="text-2xl">Devesh's Portfolio</h2>
+        <h2 className="text-2xl uppercase">Portfolio</h2>
         <ul className="flex gap-4 max-lg:hidden">
           {navLinks.map((item) => (
             <li
