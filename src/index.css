@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+  .section-class {
+    @apply min-h-screen w-full text-white flex bg-gradient-to-r from-zinc-800 to-stone-600 items-center
+  }
+
+  .container {
+    @apply max-w-screen-xl flex items-center p-8
+  }
+}
