@@ -36,6 +36,7 @@ const Navbar = () => {
     const targetElement = document.getElementById(sectionId);
     targetElement.scrollIntoView({
       behavior: "smooth",
+      block:"start"
     });
     setDropdownOpen(false)
   };
@@ -57,7 +58,7 @@ const Navbar = () => {
         </ul>
         <div className="hidden max-lg:block">
           <MdOutlineMenu className="relative text-2xl cursor-pointer" onClick={()=>setDropdownOpen(prev=>!prev)}/>
-          <ul className={`bg-black/50 backdrop-blur-md p-8 flex flex-col gap-4 ${dropdownOpen?"absolute right-0 z-[1000] top-full":"hidden"}`}>
+          <ul className={`bg-black/60 backdrop-blur-lg p-8 flex flex-col gap-4 ${dropdownOpen?"absolute right-0 z-[1000] top-full":"hidden"}`}>
             {navLinks.map((item) => (
               <li
                 key={item.link}

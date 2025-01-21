@@ -18,7 +18,7 @@ const Introduction = () => {
   return (
     <section id="introduction" className="section-class">
       <article className="container mx-auto h-screen">
-        <div id="intro-div" className="flex-1 flex flex-col max-md:h-full relative z-1 max-md:justify-end p-4 rounded-lg">
+        <div id="intro-div" className="flex-1 flex flex-col max-md:h-full relative z-1 max-md:justify-end">
           <h1 className="text-3xl md:text-5xl font-bold flex gap-4 max-md:justify-center">
             DEVESH <span className="text-sky-300">SHARMA</span>
           </h1>
@@ -26,8 +26,8 @@ const Introduction = () => {
             Software Developer <br /> SARACA Solutions Pvt. Ltd.
           </h2>
         </div>
-        <div id="intro-img" className="h-full w-full items-start max-md:absolute">
-          <img src={img} className="h-full w-full object-contain" />
+        <div id="intro-img" className="h-full w-full items-start max-md:absolute left-0 right-0 overflow-x-hidden">
+          <img src={img} className={`h-full max-w-[${window.innerWidth}px] w-full object-contain`} />
         </div>
       </article>
     </section>

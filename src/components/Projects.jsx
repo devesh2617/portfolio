@@ -69,7 +69,7 @@ const Projects = () => {
           });
       }, []);
   return (
-    <section id="projects" className="section-class">
+    <section id="projects" className="section-class pt-16">
       <article className="container mx-auto">
         <div>
           <h2 className="text-sky-300 font-bold text-3xl">Projects</h2>

@@ -48,7 +48,7 @@ const Expertise = () => {
     });
   }, []);
   return (
-    <section id="experience" className="section-class">
+    <section id="experience" className="section-class pt-16">
       <article className="container mx-auto">
         <div>
           <h2 className="text-sky-300 font-bold text-3xl">Work Experience</h2>

@@ -7,7 +7,7 @@ import Summary from "./components/Summary";
 import WorkExperience from "./components/WorkExperience";
 function App() {
   return (
-    <main className="bg-black">
+    <main className="overflow-x-hidden">
       <Navbar />
       <div>
         <Introduction/>

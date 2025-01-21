@@ -20,7 +20,7 @@ const Summary = () => {
   }, []);
   
   return (
-    <section id="summary" className="section-class">
+    <section id="summary" className="section-class pt-16">
       <article className="container mx-auto">
         <div id="summary-headline" className="flex flex-col gap-4">
           <p className="text-2xl md:text-3xl list-item">
