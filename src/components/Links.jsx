@@ -11,7 +11,7 @@ const linkData = [
     },
     {
     name:"LinkedIn",
-    link: <a href="https://github.com/devesh2617" target='_blank'>Visit my LinkedIn Profile</a>
+    link: <a href="https://www.linkedin.com/in/devesh-sharma-ds0717/" target='_blank'>Visit my LinkedIn Profile</a>
     },
     {
     name: "Resume",
