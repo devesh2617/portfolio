@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="qtst-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090812" />
+      <stop offset="100%" stop-color="#140f21" />
+    </linearGradient>
+    <linearGradient id="qtst-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22" />
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.2" />
+    </linearGradient>
+    <linearGradient id="qtst-logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="675" fill="url(#qtst-bg)" />
+
+  <!-- Subtle Grid Pattern -->
+  <g stroke="#1e293b" stroke-width="1" opacity="0.35">
+    <line x1="100" y1="0" x2="100" y2="675" />
+    <line x1="200" y1="0" x2="200" y2="675" />
+    <line x1="300" y1="0" x2="300" y2="675" />
+    <line x1="400" y1="0" x2="400" y2="675" />
+    <line x1="500" y1="0" x2="500" y2="675" />
+    <line x1="600" y1="0" x2="600" y2="675" />
+    <line x1="700" y1="0" x2="700" y2="675" />
+    <line x1="800" y1="0" x2="800" y2="675" />
+    <line x1="900" y1="0" x2="900" y2="675" />
+    <line x1="1000" y1="0" x2="1000" y2="675" />
+    <line x1="1100" y1="0" x2="1100" y2="675" />
+
+    <line x1="0" y1="100" x2="1200" y2="100" />
+    <line x1="0" y1="200" x2="1200" y2="200" />
+    <line x1="0" y1="300" x2="1200" y2="300" />
+    <line x1="0" y1="400" x2="1200" y2="400" />
+    <line x1="0" y1="500" x2="1200" y2="500" />
+    <line x1="0" y1="600" x2="1200" y2="600" />
+  </g>
+
+  <!-- Ambient Glow -->
+  <circle cx="600" cy="330" r="320" fill="url(#qtst-glow)" filter="blur(60px)" />
+
+  <!-- Code / Architecture Card -->
+  <g transform="translate(150, 100)">
+    <!-- Window Frame -->
+    <rect width="900" height="475" rx="16" fill="#0f0c1a" stroke="#2c2242" stroke-width="2" />
+
+    <!-- Title Bar -->
+    <rect width="900" height="52" rx="16" fill="#171228" />
+    <circle cx="32" cy="26" r="6" fill="#ef4444" />
+    <circle cx="52" cy="26" r="6" fill="#f59e0b" />
+    <circle cx="72" cy="26" r="6" fill="#10b981" />
+
+    <!-- File Tab -->
+    <rect x="105" y="10" width="250" height="42" rx="8" fill="#241b3d" />
+    <text x="130" y="36" fill="#c4b5fd" font-family="monospace" font-size="14" font-weight="600">talentSearchService.ts</text>
+
+    <!-- QTST Official Logo Header in Window -->
+    <g transform="translate(60, 85)">
+      <!-- Stylized Radar / Talent Node Mark -->
+      <g transform="translate(5, 5)">
+        <circle cx="26" cy="30" r="24" fill="none" stroke="url(#qtst-logo-grad)" stroke-width="3" stroke-dasharray="4 2" />
+        <circle cx="26" cy="30" r="14" fill="#a855f7" fill-opacity="0.2" stroke="#f59e0b" stroke-width="2" />
+        <circle cx="26" cy="30" r="5" fill="#f59e0b" />
+        <line x1="26" y1="6" x2="26" y2="1" stroke="#f59e0b" stroke-width="3" stroke-linecap="round" />
+        <line x1="44" y1="48" x2="55" y2="59" stroke="#a855f7" stroke-width="4" stroke-linecap="round" />
+      </g>
+
+      <text x="85" y="44" fill="#ffffff" font-family="'Poppins', sans-serif" font-size="34" font-weight="800" letter-spacing="2">QTST PLATFORM</text>
+      <text x="87" y="68" fill="#fbbf24" font-family="'Poppins', sans-serif" font-size="14" font-weight="600" letter-spacing="1">QUICK TALENT SOURCING &amp; RESUME INDEX ENGINE</text>
+    </g>
+
+    <!-- Code Block -->
+    <g transform="translate(60, 205)" font-family="monospace" font-size="16">
+      <text y="0" fill="#64748b">// 1. High-Throughput Talent Search &amp; Filter (React + Instant Indexing)</text>
+      <text y="28" fill="#fbbf24">export function <tspan fill="#f1f5f9">CandidateMatcher</tspan>({ <tspan fill="#a78bfa">filters, skillSet</tspan> }) {</text>
+      <text y="56" fill="#f1f5f9">  const { <tspan fill="#34d399">matches, totalResumes</tspan> } = <tspan fill="#38bdf8">useTalentCorpus</tspan>(filters);</text>
+      <text y="84" fill="#fbbf24">}</text>
+
+      <text y="130" fill="#64748b">// 2. Resume Corpus Ingestion (15,000+ Profiles | Node.js Engine)</text>
+      <text y="158" fill="#fbbf24">const <tspan fill="#f1f5f9">searchResult</tspan> = await <tspan fill="#a78bfa">talentIndex.queryCorpus</tspan>({</text>
+      <text y="186" fill="#f1f5f9">  profileCount: <tspan fill="#34d399">'15,000+'</tspan>, latencyMs: <tspan fill="#34d399">18</tspan>,</text>
+      <text y="214" fill="#f1f5f9">  rankingCriteria: { <tspan fill="#38bdf8">verifiedSkills: true, scoreThreshold: 0.9</tspan> }</text>
+      <text y="242" fill="#fbbf24">});</text>
+    </g>
+  </g>
+</svg>

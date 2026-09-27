@@ -1,83 +1,237 @@
-import React from "react";
+import { useState } from "react";
 import ProjectCard from "./ProjectCard";
-import saraca from "../assets/saraca.png";
-import FastRams from "../assets/FastRAMS.png";
+import nasmokImg from "../assets/nasmok.svg";
+import mobylxImg from "../assets/mobylx.svg";
+import saracaImg from "../assets/saraca.svg";
+import qtstImg from "../assets/qtst.svg";
+import portfolioImg from "../assets/portfolio.svg";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
-import portfolio from "../assets/portfolio.png"
-gsap.registerPlugin(ScrollTrigger)
+import { playClickSound, playHoverSound } from "../utils/audio";
+
+gsap.registerPlugin(ScrollTrigger);
+
 const projectsData = [
   {
-    name: "Portfolio Website",
-    tech: ["React.js", "JavaScript", "Tailwind CSS", "GSAP"],
-    highlights: [
-      "Created a portfolio website using React, Tailwind CSS, and GSAP to showcase my personal details, work experiences, projects, and technical expertise.",
+    id: "nasmok",
+    name: "Nasmok — Full Stack E-Commerce & Microservices Platform",
+    subtitle:
+      "A complete e-commerce solution comprising a customer storefront, administrative operations portal, and decoupled backend microservices.",
+    category: "fullstack",
+    tech: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Node.js",
+      "Express.js",
+      "Prisma ORM",
+      "PostgreSQL",
+      "Docker",
+      "Tailwind CSS",
     ],
-    img: portfolio, // Placeholder for an image URL if needed
+    architecture: {
+      frontend: "Next.js 16 App Router, React 19, Tailwind CSS, Responsive Cart State",
+      backend: "Node.js, Express microservices (nasmok-service, otp-service), JWT Auth",
+      database: "PostgreSQL with Prisma ORM migrations, relational schemas",
+      devops: "Docker, Docker Compose containerization for rapid deployment",
+    },
+    highlights: [
+      "Architected the customer-facing storefront in Next.js 16 (App Router) and React 19 with dynamic product search, category filtering, cart state management, and checkout.",
+      "Developed a dedicated admin dashboard for store operations, handling product catalog authoring, categories, and inventory stock auditing.",
+      "Engineered decoupled backend microservices (nasmok-service and otp-service) using Express, Prisma ORM, and PostgreSQL for JWT authentication, order processing, and role-based access.",
+      "Containerized backend services with Docker and Docker Compose for streamlined development and reliable local/production deployments.",
+    ],
+    img: nasmokImg,
   },
   {
+    id: "mobylx",
+    name: "Mobylx — B2B Mobile Trading Marketplace",
+    subtitle:
+      "A high-volume buyer and seller marketplace web application for trading pre-owned and refurbished smartphones.",
+    category: "fullstack",
+    tech: [
+      "React.js",
+      "Redux Toolkit",
+      "Node.js",
+      "Tailwind CSS",
+      "REST APIs",
+      "WebSockets",
+      "AWS S3",
+    ],
+    architecture: {
+      frontend: "React.js SPA with Redux Toolkit centralized state, Code Splitting",
+      backend: "Node.js REST APIs with WebSocket live bid subscription handlers",
+      database: "Scalable transaction ledgers, digital wallet multi-currency balance",
+      storage: "AWS S3 for device inspection photos and documentation uploads",
+    },
+    highlights: [
+      "Engineered live device trading workflows including real-time buyer/seller bidding, bid fulfillment, and purchase order tracking.",
+      "Built multi-currency wallet management modules with real-time balance inquiries, transaction ledgers, and payment top-up integration.",
+      "Structured centralized application state management with Redux Toolkit and optimized bundle size through code splitting and lazy-loaded views.",
+    ],
+    img: mobylxImg,
+  },
+  {
+    id: "saraca",
     name: "SARACA Solutions Corporate Website",
-    tech: ["React.js", "Prisma", "Express.js", "Tailwind CSS"],
+    subtitle:
+      "Complete ground-up redesign and development of the corporate website for SARACA Solutions to drive digital growth and hiring.",
+    category: "web",
+    tech: ["React.js", "Express.js", "Prisma ORM", "Tailwind CSS", "Node.js"],
+    architecture: {
+      frontend: "React with Tailwind CSS, custom animated sections and SEO meta architecture",
+      backend: "Express.js API for candidate applications and dynamic CMS publishing",
+      database: "Prisma ORM connection layer for content and submissions management",
+      analytics: "Integrated telemetry tracking leading to +50% visitor growth",
+    },
     highlights: [
-      "Developed the corporate website for SARACA Solutions using React, Tailwind CSS, Express, and Prisma, aiming to enhance the company's online presence and facilitate user engagement.",
-      "Built a dynamic career portal, allowing potential candidates to explore job opportunities and apply directly, making recruitment processes more streamlined and efficient.",
-      "Integrated dynamic content features, including blogs, webinars, and case studies, allowing the marketing and content teams to easily manage and update the website without additional development work.",
-      "Developed an admin dashboard for the Talent Acquisition (TA) and Marketing teams, enabling them to track leads, manage content, and generate insights to drive business growth.",
-      "Focused on creating a cutting-edge UI with a responsive design to ensure an intuitive and seamless user experience across all devices, improving engagement and retention.",
+      "Developed the corporate website using React, Tailwind CSS, Express, and Prisma, resulting in a 50% increase in visitor web traffic.",
+      "Built a dynamic career portal allowing candidates to explore openings and apply directly, streamlining talent recruitment.",
+      "Integrated dynamic CMS workflows for blogs, webinars, and case studies, enabling marketing teams to update content seamlessly.",
+      "Created an internal admin dashboard for Talent Acquisition and Marketing teams to track candidate leads and monitor engagement.",
     ],
-    img: saraca, // Placeholder for an image URL if needed
+    img: saracaImg,
   },
   {
-    name: "Quick Talent Search Tool",
-    tech: ["React.js", "JavaScript", "Tailwind CSS", "Daisy UI"],
+    id: "qtst",
+    name: "Quick Talent Search Tool (QTST)",
+    subtitle:
+      "Internal recruitment platform developed for Talent Acquisition to manage, search, and process candidate profiles efficiently.",
+    category: "tools",
+    tech: ["React.js", "JavaScript", "Tailwind CSS", "DaisyUI", "Node.js"],
+    architecture: {
+      frontend: "React UI with high-throughput instant filtering and search indexers",
+      backend: "Node.js service handling candidate parsing and profile classification",
+      scale: "Database managing over 15,000 resumes with sub-second retrieval",
+    },
     highlights: [
-      "The QTST (Quality Talent Sourcing Tool) frontend was developed using React to streamline and enhance the recruitment process for the Talent Acquisition department.",
-      "Key features include seamless profile sharing between recruiters and account managers, real-time tracking of hiring progress, and a dynamic dashboard for the IOG Head to monitor team performance and generate insights.",
-      "BU Heads can track recruitment progress within their respective business units.",
-      "The platform was designed with a responsive, user-friendly interface to improve collaboration and data access, ultimately improving the efficiency of the hiring process.",
+      "Developed the frontend using React to streamline candidate sourcing and manage a database of over 15,000 resumes.",
+      "Built seamless candidate profile sharing between recruiters and account managers with real-time hiring progress tracking.",
+      "Implemented a dashboard for leadership to track recruitment KPIs and business unit hiring progress.",
     ],
-    img: FastRams, // Placeholder for an image URL if needed
+    img: qtstImg,
+  },
+  {
+    id: "portfolio",
+    name: "Personal 3D Interactive Portfolio",
+    subtitle:
+      "Personal developer portfolio built with Three.js, GSAP, and Tailwind CSS to showcase full-stack engineering and creative interaction.",
+    category: "web",
+    tech: ["React.js", "Three.js", "GSAP", "Tailwind CSS", "Vite", "Web Audio API"],
+    architecture: {
+      graphics: "Three.js interactive 3D particle universe & holographic geometry core",
+      animation: "GSAP scroll triggers and smooth stagger entrances",
+      audio: "Web Audio API synthetic micro-interactions and audio feedback",
+    },
+    highlights: [
+      "Designed and developed a responsive personal portfolio using React, Three.js 3D graphics, and GSAP.",
+      "Engineered 3D Card Tilt with specular reflections, interactive custom cursor, and particle starfield.",
+      "Implemented versatile GSAP scroll animations, clean typography, and responsive layouts across all devices.",
+    ],
+    img: portfolioImg,
   },
 ];
 
+const CATEGORIES = [
+  { id: "all", label: "All Projects" },
+  { id: "fullstack", label: "Full Stack & Microservices" },
+  { id: "web", label: "Web & Graphics" },
+  { id: "tools", label: "Enterprise Systems" },
+];
+
 const Projects = () => {
-    useGSAP(() => {
-        gsap.from(".project-img", {
-          scrollTrigger: {
-            trigger: "#projects",
-            start: "top bottom", // Animation starts when #summary reaches 80% of the viewport height
-            end: "bottom bottom", // Animation ends when #summary reaches 20% of the viewport height
-            scrub: 2, // Syncs the animation with the scrollbar
-            toggleActions: "play reverse play reverse", // Reverses animation on scrolling up
-          },
-          scale:0,
-          translateX: "-50%",
-          stagger: 0.2,
-        });
-        gsap.from(".project-content", {
-            scrollTrigger: {
-              trigger: "#projects",
-              start: "top bottom", // Animation starts when #summary reaches 80% of the viewport height
-              end: "bottom bottom", // Animation ends when #summary reaches 20% of the viewport height
-              scrub: 2, // Syncs the animation with the scrollbar
-              toggleActions: "play reverse play reverse", // Reverses animation on scrolling up
-            },
-            scale:0,
-            translateX: "50%",
-            stagger: 0.2,
-          });
-      }, []);
+  const [selectedCategory, setSelectedCategory] = useState("all");
+
+  const filteredProjects =
+    selectedCategory === "all"
+      ? projectsData
+      : projectsData.filter((p) => p.category === selectedCategory);
+
+  useGSAP(() => {
+    gsap.from(".projects-header", {
+      scrollTrigger: {
+        trigger: "#projects",
+        start: "top 85%",
+        toggleActions: "play none none none",
+      },
+      y: 30,
+      opacity: 0,
+      duration: 0.7,
+      ease: "power2.out",
+    });
+
+    gsap.from(".project-card", {
+      scrollTrigger: {
+        trigger: "#projects-list",
+        start: "top 85%",
+        toggleActions: "play none none none",
+      },
+      y: 30,
+      opacity: 0,
+      duration: 0.6,
+      stagger: 0.15,
+      ease: "power2.out",
+    });
+  });
+
+  const handleCelebrate = () => {
+    playSuccessSound();
+    confetti({
+      particleCount: 50,
+      spread: 60,
+      origin: { y: 0.6 },
+      colors: ["#38bdf8", "#818cf8", "#34d399", "#c084fc"],
+    });
+  };
+
   return (
-    <section id="projects" className="section-class pt-16">
+    <section id="projects" className="section-class py-24 relative overflow-hidden">
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/4 right-5 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
+
       <article className="container mx-auto">
-        <div>
-          <h2 className="text-sky-300 font-bold text-3xl">Projects</h2>
-          <div className="w-full flex flex-col gap-16 mt-8">
-            {projectsData.map((project) => (
-              <ProjectCard key={project.name} {...project} />
-            ))}
+        {/* Header & Filter Tabs */}
+        <div className="projects-header flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div>
+            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
+              Featured <span className="gradient-text-cyan">Projects</span>
+            </h2>
           </div>
+
+          {/* Category Filter Pills */}
+          <div className="flex flex-wrap items-center gap-2 p-1.5 rounded-2xl bg-slate-900/80 border border-slate-800 backdrop-blur-md">
+            {CATEGORIES.map((cat) => {
+              const isActive = selectedCategory === cat.id;
+              return (
+                <button
+                  key={cat.id}
+                  onClick={() => {
+                    playClickSound();
+                    setSelectedCategory(cat.id);
+                  }}
+                  onMouseEnter={playHoverSound}
+                  className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all duration-200 cursor-pointer ${
+                    isActive
+                      ? "bg-sky-500 text-white shadow-neon-cyan"
+                      : "text-slate-400 hover:text-white hover:bg-slate-800"
+                  }`}
+                >
+                  {cat.label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Project List */}
+        <div id="projects-list" className="w-full flex flex-col gap-8">
+          {filteredProjects.map((project) => (
+            <ProjectCard
+              key={project.name}
+              {...project}
+            />
+          ))}
         </div>
       </article>
     </section>

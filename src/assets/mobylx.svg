@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="mobylx-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070a14" />
+      <stop offset="100%" stop-color="#111226" />
+    </linearGradient>
+    <linearGradient id="mobylx-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4529a8" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.2" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="675" fill="url(#mobylx-bg)" />
+
+  <!-- Subtle Grid Pattern -->
+  <g stroke="#1e293b" stroke-width="1" opacity="0.35">
+    <line x1="100" y1="0" x2="100" y2="675" />
+    <line x1="200" y1="0" x2="200" y2="675" />
+    <line x1="300" y1="0" x2="300" y2="675" />
+    <line x1="400" y1="0" x2="400" y2="675" />
+    <line x1="500" y1="0" x2="500" y2="675" />
+    <line x1="600" y1="0" x2="600" y2="675" />
+    <line x1="700" y1="0" x2="700" y2="675" />
+    <line x1="800" y1="0" x2="800" y2="675" />
+    <line x1="900" y1="0" x2="900" y2="675" />
+    <line x1="1000" y1="0" x2="1000" y2="675" />
+    <line x1="1100" y1="0" x2="1100" y2="675" />
+
+    <line x1="0" y1="100" x2="1200" y2="100" />
+    <line x1="0" y1="200" x2="1200" y2="200" />
+    <line x1="0" y1="300" x2="1200" y2="300" />
+    <line x1="0" y1="400" x2="1200" y2="400" />
+    <line x1="0" y1="500" x2="1200" y2="500" />
+    <line x1="0" y1="600" x2="1200" y2="600" />
+  </g>
+
+  <!-- Ambient Glow -->
+  <circle cx="600" cy="330" r="320" fill="url(#mobylx-glow)" filter="blur(60px)" />
+
+  <!-- Code / Architecture Card -->
+  <g transform="translate(150, 100)">
+    <!-- Window Frame -->
+    <rect width="900" height="475" rx="16" fill="#0c0e1a" stroke="#232642" stroke-width="2" />
+
+    <!-- Title Bar -->
+    <rect width="900" height="52" rx="16" fill="#131526" />
+    <circle cx="32" cy="26" r="6" fill="#ef4444" />
+    <circle cx="52" cy="26" r="6" fill="#f59e0b" />
+    <circle cx="72" cy="26" r="6" fill="#10b981" />
+
+    <!-- File Tab -->
+    <rect x="105" y="10" width="240" height="42" rx="8" fill="#1d2038" />
+    <text x="130" y="36" fill="#a5b4fc" font-family="monospace" font-size="14" font-weight="600">marketplaceApi.js</text>
+
+    <!-- Mobylx Official Logo Header in Window -->
+    <g transform="translate(60, 85)">
+      <!-- Official Mobylx Mark -->
+      <g transform="scale(0.045) translate(0, -300)">
+        <polygon fill="#6366f1" points="400 1400 900 1000 1400 1400 1400 1000 900 900 400 1000 400 1400"/>
+        <polygon fill="#38bdf8" points="1400 800 900 900 400 800 400 400 900 800 1400 400 1400 800"/>
+      </g>
+
+      <text x="80" y="44" fill="#ffffff" font-family="'Poppins', sans-serif" font-size="34" font-weight="800" letter-spacing="2">MOBYLX</text>
+      <text x="82" y="66" fill="#818cf8" font-family="'Poppins', sans-serif" font-size="14" font-weight="600" letter-spacing="1">B2B DEVICE TRADING MARKETPLACE</text>
+    </g>
+
+    <!-- Code Block -->
+    <g transform="translate(60, 205)" font-family="monospace" font-size="16">
+      <text y="0" fill="#64748b">// 1. Live Bidding &amp; Fulfillment Engine (React + Redux Toolkit)</text>
+      <text y="28" fill="#818cf8">export const <tspan fill="#f1f5f9">marketplaceApi</tspan> = <tspan fill="#38bdf8">createApi</tspan>({</text>
+      <text y="56" fill="#f1f5f9">  reducerPath: <tspan fill="#a5b4fc">'marketplaceApi'</tspan>,</text>
+      <text y="84" fill="#f1f5f9">  endpoints: (builder) => ({</text>
+      <text y="112" fill="#f1f5f9">    getBidsToFulfil: builder.<tspan fill="#38bdf8">query</tspan>({ query: () => <tspan fill="#34d399">'/api/v1/bids'</tspan> }),</text>
+      <text y="140" fill="#f1f5f9">    getWalletBalance: builder.<tspan fill="#38bdf8">query</tspan>({ query: () => <tspan fill="#34d399">'/api/v1/wallet'</tspan> }),</text>
+      <text y="168" fill="#f1f5f9">  })</text>
+      <text y="196" fill="#818cf8">});</text>
+    </g>
+  </g>
+</svg>

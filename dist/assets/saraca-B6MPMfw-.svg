@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="saraca-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#060b14" />
+      <stop offset="100%" stop-color="#0c1829" />
+    </linearGradient>
+    <linearGradient id="saraca-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.2" />
+    </linearGradient>
+    <linearGradient id="saraca-logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="675" fill="url(#saraca-bg)" />
+
+  <!-- Subtle Grid Pattern -->
+  <g stroke="#1e293b" stroke-width="1" opacity="0.35">
+    <line x1="100" y1="0" x2="100" y2="675" />
+    <line x1="200" y1="0" x2="200" y2="675" />
+    <line x1="300" y1="0" x2="300" y2="675" />
+    <line x1="400" y1="0" x2="400" y2="675" />
+    <line x1="500" y1="0" x2="500" y2="675" />
+    <line x1="600" y1="0" x2="600" y2="675" />
+    <line x1="700" y1="0" x2="700" y2="675" />
+    <line x1="800" y1="0" x2="800" y2="675" />
+    <line x1="900" y1="0" x2="900" y2="675" />
+    <line x1="1000" y1="0" x2="1000" y2="675" />
+    <line x1="1100" y1="0" x2="1100" y2="675" />
+
+    <line x1="0" y1="100" x2="1200" y2="100" />
+    <line x1="0" y1="200" x2="1200" y2="200" />
+    <line x1="0" y1="300" x2="1200" y2="300" />
+    <line x1="0" y1="400" x2="1200" y2="400" />
+    <line x1="0" y1="500" x2="1200" y2="500" />
+    <line x1="0" y1="600" x2="1200" y2="600" />
+  </g>
+
+  <!-- Ambient Glow -->
+  <circle cx="600" cy="330" r="320" fill="url(#saraca-glow)" filter="blur(60px)" />
+
+  <!-- Code / Architecture Card -->
+  <g transform="translate(150, 100)">
+    <!-- Window Frame -->
+    <rect width="900" height="475" rx="16" fill="#091322" stroke="#1b2a4a" stroke-width="2" />
+
+    <!-- Title Bar -->
+    <rect width="900" height="52" rx="16" fill="#0e1d35" />
+    <circle cx="32" cy="26" r="6" fill="#ef4444" />
+    <circle cx="52" cy="26" r="6" fill="#f59e0b" />
+    <circle cx="72" cy="26" r="6" fill="#10b981" />
+
+    <!-- File Tab -->
+    <rect x="105" y="10" width="240" height="42" rx="8" fill="#1b2d4b" />
+    <text x="130" y="36" fill="#7dd3fc" font-family="monospace" font-size="14" font-weight="600">SaracaPortal.tsx</text>
+
+    <!-- Saraca Official Logo Header in Window -->
+    <g transform="translate(60, 85)">
+      <!-- Stylized Corporate Engineering Hex Mark -->
+      <g transform="translate(0, 5)">
+        <polygon points="30,5 55,20 55,50 30,65 5,50 5,20" fill="none" stroke="url(#saraca-logo-grad)" stroke-width="4" />
+        <polygon points="30,16 46,25 46,44 30,53 14,44 14,25" fill="url(#saraca-logo-grad)" opacity="0.3" />
+        <circle cx="30" cy="35" r="6" fill="#38bdf8" />
+      </g>
+
+      <text x="85" y="44" fill="#ffffff" font-family="'Poppins', sans-serif" font-size="34" font-weight="800" letter-spacing="2">SARACA SOLUTIONS</text>
+      <text x="87" y="68" fill="#38bdf8" font-family="'Poppins', sans-serif" font-size="14" font-weight="600" letter-spacing="1">CORPORATE PLATFORM &amp; TALENT ACQUISITION PORTAL</text>
+    </g>
+
+    <!-- Code Block -->
+    <g transform="translate(60, 205)" font-family="monospace" font-size="16">
+      <text y="0" fill="#64748b">// 1. Corporate Web Platform &amp; Career Portal (React + Tailwind CSS)</text>
+      <text y="28" fill="#38bdf8">export function <tspan fill="#f1f5f9">CareerPortal</tspan>({ <tspan fill="#fbbf24">openings, department</tspan> }) {</text>
+      <text y="56" fill="#f1f5f9">  const { <tspan fill="#34d399">applyCandidate, isSubmitted</tspan> } = <tspan fill="#818cf8">useCareerPortalStream</tspan>();</text>
+      <text y="84" fill="#38bdf8">}</text>
+
+      <text y="130" fill="#64748b">// 2. Content &amp; Telemetry Engine (+50% Web Traffic Growth | Express + Prisma)</text>
+      <text y="158" fill="#38bdf8">const <tspan fill="#f1f5f9">telemetry</tspan> = await <tspan fill="#818cf8">prisma.webTraffic.recordMetric</tspan>({</text>
+      <text y="186" fill="#f1f5f9">  data: { <tspan fill="#34d399">trafficGrowth: '+50%', activeOpenings: 120</tspan> },</text>
+      <text y="214" fill="#f1f5f9">  include: { <tspan fill="#fbbf24">candidateLeads: true</tspan> }</text>
+      <text y="242" fill="#38bdf8">});</text>
+    </g>
+  </g>
+</svg>
