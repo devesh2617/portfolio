@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="50%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#6366f1" />
+    </linearGradient>
+    <linearGradient id="innerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#060b14" />
+      <stop offset="100%" stop-color="#0e1726" />
+    </linearGradient>
+  </defs>
+
+  <!-- Glowing Squircle Container -->
+  <rect x="4" y="4" width="56" height="56" rx="16" fill="url(#bgGrad)" />
+  <rect x="7" y="7" width="50" height="50" rx="13" fill="url(#innerGrad)" />
+
+  <!-- Bold Monogram "D" -->
+  <path d="M22 17 H33.5 C41.5 17 46 22.2 46 32 C46 41.8 41.5 47 33.5 47 H22 V17 Z M28.5 23.5 V40.5 H33 C37.8 40.5 40 37.5 40 32 C40 26.5 37.8 23.5 33 23.5 H28.5 Z" fill="url(#bgGrad)" />
+</svg>
