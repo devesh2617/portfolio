@@ -1,4 +1,3 @@
-import { useState } from "react";
 import ProjectCard from "./ProjectCard";
 import nasmokImg from "../assets/nasmok.svg";
 import mobylxImg from "../assets/mobylx.svg";
@@ -8,7 +7,6 @@ import portfolioImg from "../assets/portfolio.svg";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
-import { playClickSound, playHoverSound } from "../utils/audio";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -133,21 +131,7 @@ const projectsData = [
   },
 ];
 
-const CATEGORIES = [
-  { id: "all", label: "All Projects" },
-  { id: "fullstack", label: "Full Stack & Microservices" },
-  { id: "web", label: "Web & Graphics" },
-  { id: "tools", label: "Enterprise Systems" },
-];
-
 const Projects = () => {
-  const [selectedCategory, setSelectedCategory] = useState("all");
-
-  const filteredProjects =
-    selectedCategory === "all"
-      ? projectsData
-      : projectsData.filter((p) => p.category === selectedCategory);
-
   useGSAP(() => {
     gsap.from(".projects-header", {
       scrollTrigger: {
@@ -175,60 +159,24 @@ const Projects = () => {
     });
   });
 
-  const handleCelebrate = () => {
-    playSuccessSound();
-    confetti({
-      particleCount: 50,
-      spread: 60,
-      origin: { y: 0.6 },
-      colors: ["#38bdf8", "#818cf8", "#34d399", "#c084fc"],
-    });
-  };
-
   return (
     <section id="projects" className="section-class py-24 relative overflow-hidden">
       {/* Background ambient lighting */}
       <div className="absolute top-1/4 right-5 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
 
       <article className="container mx-auto">
-        {/* Header & Filter Tabs */}
-        <div className="projects-header flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-          <div>
-            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
-              Featured <span className="gradient-text-cyan">Projects</span>
-            </h2>
-          </div>
-
-          {/* Category Filter Pills */}
-          <div className="flex flex-wrap items-center gap-2 p-1.5 rounded-2xl bg-slate-900/80 border border-slate-800 backdrop-blur-md">
-            {CATEGORIES.map((cat) => {
-              const isActive = selectedCategory === cat.id;
-              return (
-                <button
-                  key={cat.id}
-                  onClick={() => {
-                    playClickSound();
-                    setSelectedCategory(cat.id);
-                  }}
-                  onMouseEnter={playHoverSound}
-                  className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all duration-200 cursor-pointer ${
-                    isActive
-                      ? "bg-sky-500 text-white shadow-neon-cyan"
-                      : "text-slate-400 hover:text-white hover:bg-slate-800"
-                  }`}
-                >
-                  {cat.label}
-                </button>
-              );
-            })}
-          </div>
+        {/* Header */}
+        <div className="projects-header mb-12">
+          <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
+            Featured <span className="gradient-text-cyan">Projects</span>
+          </h2>
         </div>
 
         {/* Project List */}
         <div id="projects-list" className="w-full flex flex-col gap-8">
-          {filteredProjects.map((project) => (
+          {projectsData.map((project) => (
             <ProjectCard
-              key={project.name}
+              key={project.id || project.name}
               {...project}
             />
           ))}
