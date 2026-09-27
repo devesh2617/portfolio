@@ -93,10 +93,13 @@ const Expertise = () => {
   const handleCategorySelect = (id) => {
     playClickSound();
     setSelectedCategory(id);
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 100);
   };
 
   return (
-    <section id="expertise" className="section-class py-24 relative overflow-hidden">
+    <section id="expertise" className="section-class !flex-col !justify-start py-24 relative overflow-hidden">
       {/* Background ambient lighting */}
       <div className="absolute top-1/3 right-10 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
 
