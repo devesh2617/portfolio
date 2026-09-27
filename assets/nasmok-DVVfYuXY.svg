@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22c55e" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#1d70e2" stop-opacity="0.15" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="675" fill="url(#bg)" />
+
+  <!-- Subtle Grid Pattern -->
+  <g stroke="#1e293b" stroke-width="1" opacity="0.4">
+    <line x1="100" y1="0" x2="100" y2="675" />
+    <line x1="200" y1="0" x2="200" y2="675" />
+    <line x1="300" y1="0" x2="300" y2="675" />
+    <line x1="400" y1="0" x2="400" y2="675" />
+    <line x1="500" y1="0" x2="500" y2="675" />
+    <line x1="600" y1="0" x2="600" y2="675" />
+    <line x1="700" y1="0" x2="700" y2="675" />
+    <line x1="800" y1="0" x2="800" y2="675" />
+    <line x1="900" y1="0" x2="900" y2="675" />
+    <line x1="1000" y1="0" x2="1000" y2="675" />
+    <line x1="1100" y1="0" x2="1100" y2="675" />
+
+    <line x1="0" y1="100" x2="1200" y2="100" />
+    <line x1="0" y1="200" x2="1200" y2="200" />
+    <line x1="0" y1="300" x2="1200" y2="300" />
+    <line x1="0" y1="400" x2="1200" y2="400" />
+    <line x1="0" y1="500" x2="1200" y2="500" />
+    <line x1="0" y1="600" x2="1200" y2="600" />
+  </g>
+
+  <!-- Ambient Glow -->
+  <circle cx="600" cy="330" r="300" fill="url(#glow)" filter="blur(60px)" />
+
+  <!-- Code / Architecture Card -->
+  <g transform="translate(150, 100)">
+    <!-- Window Frame -->
+    <rect width="900" height="475" rx="16" fill="#0b1120" stroke="#1e293b" stroke-width="2" />
+
+    <!-- Title Bar -->
+    <rect width="900" height="52" rx="16" fill="#0f172a" />
+    <circle cx="32" cy="26" r="6" fill="#ef4444" />
+    <circle cx="52" cy="26" r="6" fill="#f59e0b" />
+    <circle cx="72" cy="26" r="6" fill="#10b981" />
+
+    <!-- File Tab -->
+    <rect x="105" y="10" width="220" height="42" rx="8" fill="#1e293b" />
+    <text x="130" y="36" fill="#94a3b8" font-family="monospace" font-size="14" font-weight="600">nasmok-service.ts</text>
+
+    <!-- Nasmok Logo & Brand Header in Window -->
+    <g transform="translate(60, 90)">
+      <!-- Nasmok Official Vector Logo Mark -->
+      <svg x="0" y="0" width="70" height="70" viewBox="0 0 100 100">
+        <path d="M20,15 L40,15 L40,85 L20,85 Z" fill="#22c55e" />
+        <path d="M40,15 L62,55 L62,15 L80,15 L80,85 L60,85 L38,45 L38,85 L40,85 Z" fill="#1d70e2" />
+      </svg>
+
+      <text x="90" y="44" fill="#ffffff" font-family="'Poppins', sans-serif" font-size="34" font-weight="800" letter-spacing="2">NASMOK</text>
+      <text x="92" y="66" fill="#38bdf8" font-family="'Poppins', sans-serif" font-size="14" font-weight="600" letter-spacing="1">E-COMMERCE PLATFORM &amp; MICROSERVICES</text>
+    </g>
+
+    <!-- Code Block -->
+    <g transform="translate(60, 205)" font-family="monospace" font-size="16">
+      <text y="0" fill="#64748b">// 1. Client Storefront (Next.js 16 + React 19 + Redux Toolkit)</text>
+      <text y="28" fill="#38bdf8">export default function <tspan fill="#f1f5f9">ProductCatalog</tspan>({ <tspan fill="#fbbf24">category, filters</tspan> }) {</text>
+      <text y="56" fill="#f1f5f9">  const { <tspan fill="#34d399">data: products</tspan>, isLoading } = <tspan fill="#818cf8">useGetProductsQuery</tspan>(filters);</text>
+      <text y="84" fill="#38bdf8">}</text>
+
+      <text y="130" fill="#64748b">// 2. Backend Microservice (Node.js + Prisma ORM + PostgreSQL)</text>
+      <text y="158" fill="#38bdf8">const <tspan fill="#f1f5f9">cartItem</tspan> = await <tspan fill="#818cf8">prisma.cartItem.create</tspan>({</text>
+      <text y="186" fill="#f1f5f9">  data: { <tspan fill="#34d399">cartId, productId, quantity</tspan> },</text>
+      <text y="214" fill="#f1f5f9">  include: { <tspan fill="#fbbf24">product: true</tspan> }</text>
+      <text y="242" fill="#38bdf8">});</text>
+    </g>
+  </g>
+</svg>

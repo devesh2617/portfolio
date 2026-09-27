@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="portfolio-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050712" />
+      <stop offset="100%" stop-color="#0e1124" />
+    </linearGradient>
+    <linearGradient id="portfolio-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#d946ef" stop-opacity="0.22" />
+    </linearGradient>
+    <linearGradient id="portfolio-logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee" />
+      <stop offset="100%" stop-color="#e879f9" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="675" fill="url(#portfolio-bg)" />
+
+  <!-- Subtle Grid Pattern -->
+  <g stroke="#1e293b" stroke-width="1" opacity="0.35">
+    <line x1="100" y1="0" x2="100" y2="675" />
+    <line x1="200" y1="0" x2="200" y2="675" />
+    <line x1="300" y1="0" x2="300" y2="675" />
+    <line x1="400" y1="0" x2="400" y2="675" />
+    <line x1="500" y1="0" x2="500" y2="675" />
+    <line x1="600" y1="0" x2="600" y2="675" />
+    <line x1="700" y1="0" x2="700" y2="675" />
+    <line x1="800" y1="0" x2="800" y2="675" />
+    <line x1="900" y1="0" x2="900" y2="675" />
+    <line x1="1000" y1="0" x2="1000" y2="675" />
+    <line x1="1100" y1="0" x2="1100" y2="675" />
+
+    <line x1="0" y1="100" x2="1200" y2="100" />
+    <line x1="0" y1="200" x2="1200" y2="200" />
+    <line x1="0" y1="300" x2="1200" y2="300" />
+    <line x1="0" y1="400" x2="1200" y2="400" />
+    <line x1="0" y1="500" x2="1200" y2="500" />
+    <line x1="0" y1="600" x2="1200" y2="600" />
+  </g>
+
+  <!-- Ambient Glow -->
+  <circle cx="600" cy="330" r="320" fill="url(#portfolio-glow)" filter="blur(60px)" />
+
+  <!-- Code / Architecture Card -->
+  <g transform="translate(150, 100)">
+    <!-- Window Frame -->
+    <rect width="900" height="475" rx="16" fill="#090d1c" stroke="#1f2747" stroke-width="2" />
+
+    <!-- Title Bar -->
+    <rect width="900" height="52" rx="16" fill="#11162e" />
+    <circle cx="32" cy="26" r="6" fill="#ef4444" />
+    <circle cx="52" cy="26" r="6" fill="#f59e0b" />
+    <circle cx="72" cy="26" r="6" fill="#10b981" />
+
+    <!-- File Tab -->
+    <rect x="105" y="10" width="230" height="42" rx="8" fill="#1e274a" />
+    <text x="130" y="36" fill="#67e8f9" font-family="monospace" font-size="14" font-weight="600">GalaxyUniverse.tsx</text>
+
+    <!-- Portfolio 3D Official Logo Header in Window -->
+    <g transform="translate(60, 85)">
+      <!-- Stylized 3D Isometric Cube Mark -->
+      <g transform="translate(5, 5)">
+        <polygon points="26,5 48,17 26,29 4,17" fill="#22d3ee" fill-opacity="0.8" stroke="#38bdf8" stroke-width="1.5" />
+        <polygon points="4,17 26,29 26,55 4,43" fill="#818cf8" fill-opacity="0.8" stroke="#a855f7" stroke-width="1.5" />
+        <polygon points="26,29 48,17 48,43 26,55" fill="#e879f9" fill-opacity="0.8" stroke="#d946ef" stroke-width="1.5" />
+        <circle cx="26" cy="29" r="3" fill="#ffffff" />
+      </g>
+
+      <text x="85" y="44" fill="#ffffff" font-family="'Poppins', sans-serif" font-size="34" font-weight="800" letter-spacing="2">PORTFOLIO 3D</text>
+      <text x="87" y="68" fill="#22d3ee" font-family="'Poppins', sans-serif" font-size="14" font-weight="600" letter-spacing="1">THREE.JS PARTICLE UNIVERSE &amp; INTERACTIVE GRAPHICS</text>
+    </g>
+
+    <!-- Code Block -->
+    <g transform="translate(60, 205)" font-family="monospace" font-size="16">
+      <text y="0" fill="#64748b">// 1. WebGL 3D Particle Universe (Three.js + React Three Fiber)</text>
+      <text y="28" fill="#22d3ee">useFrame(({ <tspan fill="#e879f9">clock</tspan> }) =&gt; {</text>
+      <text y="56" fill="#f1f5f9">  universeRef.current.<tspan fill="#38bdf8">rotation.y</tspan> = clock.<tspan fill="#fbbf24">getElapsedTime</tspan>() * 0.04;</text>
+      <text y="84" fill="#f1f5f9">  hologramCore.uniforms.<tspan fill="#38bdf8">uTime.value</tspan> = clock.<tspan fill="#fbbf24">getElapsedTime</tspan>();</text>
+      <text y="112" fill="#22d3ee">});</text>
+
+      <text y="158" fill="#64748b">// 2. GSAP Kinematics &amp; Web Audio Synthesis (Responsive Interaction)</text>
+      <text y="186" fill="#e879f9">gsap.<tspan fill="#38bdf8">to</tspan>(<tspan fill="#34d399">'.project-card'</tspan>, {</text>
+      <text y="214" fill="#f1f5f9">  scrollTrigger: <tspan fill="#34d399">'#projects'</tspan>, stagger: <tspan fill="#fbbf24">0.1</tspan>, y: <tspan fill="#fbbf24">0</tspan>, opacity: <tspan fill="#fbbf24">1</tspan></text>
+      <text y="242" fill="#e879f9">});</text>
+    </g>
+  </g>
+</svg>
